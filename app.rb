@@ -1,9 +1,10 @@
 require "sinatra"
 require "sinatra/reloader"
 require_relative "models/next_week"
+require_relative "models/song_kick"
+require_relative "env"
 
 get "/" do
-  @monday = NextWeek.start.strftime("%Y-%m-%d")
-  @sunday = NextWeek.end.strftime("%Y-%m-%d")
+  @shows = SongKick.shows
   erb :index
 end
