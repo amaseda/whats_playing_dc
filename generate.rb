@@ -17,7 +17,7 @@ SongKick.artists.each do |artist|
   break
 end
 
-erb = ERB.new(File.open("#{__dir__}/views/index.erb").read)
+erb = ERB.new(File.open("#{__dir__}/views/generated.erb").read)
 d = Date.today.strftime("%F")
 File.write("public/dc-#{d}.html", erb.result)
 puts erb.result

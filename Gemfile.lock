@@ -3,10 +3,14 @@ GEM
   specs:
     backports (3.6.7)
     coderay (1.1.1)
+    excon (0.50.1)
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     json (1.8.3)
+    mailchimp-api (2.0.6)
+      excon (>= 0.16.0)
+      json (>= 1.7.7)
     method_source (0.8.2)
     multi_json (1.11.2)
     multi_xml (0.5.5)
@@ -38,6 +42,7 @@ PLATFORMS
 
 DEPENDENCIES
   httparty
+  mailchimp-api
   pry
   sinatra
   sinatra-contrib

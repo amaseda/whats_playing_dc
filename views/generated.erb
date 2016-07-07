@@ -1,0 +1,6 @@
+<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Ajesseshawl%3Aplaylist%3A3NiX3gWEsRhI2KQYCFsRYK" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+<h2>Shows</h2>
+<% @shows.each do |show| %>
+  <li><a href='<%= show['uri'] %>'><%= show["displayName"] %></a></li>
+<% end %>
