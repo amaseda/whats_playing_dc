@@ -10,7 +10,7 @@ class SongKick
   def self.artists
     artists = self.shows.map do |show|
       show["performance"].map do |perf|
-        perf["artist"]["displayName"] 
+        perf["artist"]["displayName"]
       end
     end
     artists.flatten

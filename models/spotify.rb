@@ -19,7 +19,6 @@ end
 
 class Playlist
   include HTTParty
-  debug_output STDOUT
   def initialize
 
   end
@@ -38,4 +37,6 @@ class Playlist
     }
     self.class.post("https://api.spotify.com/v1/users/jesseshawl/playlists/#{playlist_id}/tracks", opts)
   end
+
+
 end

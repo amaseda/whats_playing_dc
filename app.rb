@@ -5,9 +5,7 @@ require_relative "models/song_kick"
 require_relative "env"
 
 get "/" do
-  @shows = SongKick.shows
-  @artists = SongKick.artists
-  erb :index
+  redirect "/dc-2016-07-07.html"
 end
 
 get "/json" do
