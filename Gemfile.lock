@@ -41,6 +41,3 @@ DEPENDENCIES
   pry
   sinatra
   sinatra-contrib
-
-BUNDLED WITH
-   1.12.3
