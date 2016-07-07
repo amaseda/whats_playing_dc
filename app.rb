@@ -8,3 +8,8 @@ get "/" do
   @shows = SongKick.shows
   erb :index
 end
+
+get "/json" do
+  @shows = SongKick.shows
+  @shows.to_json
+end
