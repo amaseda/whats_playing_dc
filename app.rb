@@ -6,6 +6,7 @@ require_relative "env"
 
 get "/" do
   @shows = SongKick.shows
+  @artists = SongKick.artists
   erb :index
 end
 

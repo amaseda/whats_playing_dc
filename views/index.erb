@@ -1,3 +1,10 @@
+<h2>Artists</h2>
+
+<% @artists.each do |artist| %>
+  <li><%= artist %></li>  
+<% end %>
+
+<h2>Shows</h2>
 <% @shows.each do |show| %>
   <li><a href='<%= show['uri'] %>'><%= show["displayName"] %></a></li>
 <% end %>
