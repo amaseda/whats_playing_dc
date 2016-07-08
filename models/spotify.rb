@@ -19,15 +19,22 @@ end
 
 class Playlist
   include HTTParty
+  debug_output $stdout
   def initialize
 
   end
-  def add track
-    playlist_id = "3NiX3gWEsRhI2KQYCFsRYK"
-    track_uri = "spotify:track:" + track["id"]
+  def add tracks
+    playlist_id = "6DeZWe3bJym4SkTvt1yWQ6"
+    track_uris = tracks.map{ |track| 
+      begin
+	"spotify:track:" + track["id"] 
+      rescue
+	nil
+      end
+    }.compact
     opts = {
       body: {
-        uris: [track_uri]
+        uris: track_uris
       }.to_json,
       headers: {
         "Authorization" => "Bearer " + ENV['spotify_api_key'],
@@ -35,7 +42,7 @@ class Playlist
 	"Content-type" => "application/json"
       }
     }
-    self.class.post("https://api.spotify.com/v1/users/jesseshawl/playlists/#{playlist_id}/tracks", opts)
+    self.class.put("https://api.spotify.com/v1/users/whatsplayingin/playlists/#{playlist_id}/tracks", opts)
   end
 
 
