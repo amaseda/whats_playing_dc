@@ -1,9 +1,11 @@
 require "sinatra"
+require "sinatra/activerecord"
 require "sinatra/reloader"
 require "mailchimp"
 require "pry"
 require_relative "models/next_week"
 require_relative "models/song_kick"
+require_relative "models/user"
 require_relative "env"
 
 get "/" do
@@ -15,10 +17,8 @@ get "/dc" do
 end
 
 post "/signup" do
-  mailchimp = Mailchimp::API.new(ENV['mailchimp_api_key'])
-  mailchimp.lists.subscribe( ENV['mailchimp_list_id'], { 
-    "email" => params[:email]
-  })
+  u = User.where(email: params[:email]).first || User.create(email: params[:email])
+  @users = User.all
   erb :thanks
 end
 

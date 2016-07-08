@@ -2,3 +2,4 @@ env.rb
 public/*.html
 log/
 tmp/
+*.sqlite3
