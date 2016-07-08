@@ -2,6 +2,7 @@ require "erb"
 require_relative "models/next_week"
 require_relative "models/spotify"
 require_relative "models/song_kick"
+require_relative "models/user"
 require_relative "env"
 
 @shows = SongKick.shows
