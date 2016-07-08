@@ -13,6 +13,7 @@ get "/" do
 end
 
 get "/dc" do
+  @data = JSON.parse(File.read("#{__dir__}/public/dc.json"))
   erb :index
 end
 

@@ -22,4 +22,4 @@ p.add tracks
 
 erb = ERB.new(File.open("#{__dir__}/views/generated.erb").read)
 d = Date.today.strftime("%F")
-File.write("public/dc-#{d}.html", erb.result)
+File.write("public/dc.json", erb.result)
