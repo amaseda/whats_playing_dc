@@ -2,7 +2,6 @@ require "sinatra"
 require "date"
 require "sinatra/activerecord"
 require "sinatra/reloader"
-require "mailchimp"
 require "pry"
 require_relative "models/next_week"
 require_relative "models/song_kick"
@@ -17,12 +16,15 @@ end
 get "/dc" do
   @data = JSON.parse(File.read("#{__dir__}/public/dc.json"))
   @shows = {}
+  @dayz = []
   @data['shows'].each do |show|
     if show
       @shows[show['start']['date']] ||= []
       @shows[show['start']['date']] << show
+      @dayz << show['start']['date']
     end
   end
+  @dayz = @dayz.uniq
   erb :index
 end
 

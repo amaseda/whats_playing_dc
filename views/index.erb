@@ -1,24 +1,31 @@
-
+<div class='header'>
+<iframe src=<%= @data["embed_url"] %> width="30%" height="100%" frameborder="0" allowtransparency="true"></iframe>
+<div class='sixty'>
+<h1 class='title'><a href='/dc'>What's Playing in DC</a></h1>
+<p>Subscribe to a weekly playlist featuring artists playing in DC.</p>
 <form method='post' action='signup'>
-  <fieldset class='form-group'>
-  <label>Your email address</label>
-  <input class="form-control" type='email' required name='email'>
-  <small>We'll never share your email with anyone else.</small>
-  </fieldset>
-  <button class='btn btn-primary' type='submit'>Sign Up</button>
+  <input class="form-control" type='email' required name='email' placeholder="Enter your email">
 </form>
+<nav>
+  <% @dayz.each do |d| %>
+    <a href='#<%=d %>'><%= Date.parse(d).strftime("%a %-m/%e") %></a>
+  <% end %>
+</nav>
 
-<iframe src=<%= @data["embed_url"] %> width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 
+<main>
 <% @shows.each do |day, shows| %>
-  <h2><%= Date.parse(day).strftime("%A, %B %e, %Y") %></h2>
+  <h2 id='<%= day %>'><%= Date.parse(day).strftime("%A, %B %e, %Y") %></h2>
   <% shows.each do |show| %>
-    <div class="show">
+    <div class="show" >
       <a href='<%= show['uri'] %>'>
-      <p><%= show["performance"][0]["artist"]["displayName"] %> - 
+      <%= show["performance"][0]["artist"]["displayName"] %> - 
       <%= show["start"]["time"] %> @
       <%= show["venue"]["displayName"] %>
       </a>
     </div>
   <% end %>
 <% end %>
+</main>
+</div>
+</div>
