@@ -13,7 +13,7 @@
 <% @data["shows"].each do |show| %>
   <div class="show">
     <p><%= show["performance"][0]["artist"]["displayName"] %></p>
-    <p><%= Date.parse(show["start"]["datetime"]) %></p>
+    <p><%= show["start"]["datetime"] %></p>
     <p><%= show["venue"]["displayName"] %></p>
 
   </div>
