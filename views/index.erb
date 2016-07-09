@@ -10,11 +10,15 @@
 
 <iframe src=<%= @data["embed_url"] %> width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 
-<% @data["shows"].each do |show| %>
-  <div class="show">
-    <p><%= show["performance"][0]["artist"]["displayName"] %></p>
-    <p><%= show["start"]["datetime"] %></p>
-    <p><%= show["venue"]["displayName"] %></p>
-
-  </div>
+<% @shows.each do |day, shows| %>
+  <h2><%= Date.parse(day).strftime("%A, %B %e, %Y") %></h2>
+  <% shows.each do |show| %>
+    <div class="show">
+      <a href='<%= show['uri'] %>'>
+      <p><%= show["performance"][0]["artist"]["displayName"] %> - 
+      <%= show["start"]["time"] %> @
+      <%= show["venue"]["displayName"] %>
+      </a>
+    </div>
+  <% end %>
 <% end %>
