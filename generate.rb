@@ -18,7 +18,7 @@ SongKick.artists.each do |artist|
 end
 p = Playlist.new
 p tracks
-p.add tracks
+p.add tracks.sample(99)
 
 erb = ERB.new(File.open("#{__dir__}/views/generated.erb").read)
 d = Date.today.strftime("%F")
